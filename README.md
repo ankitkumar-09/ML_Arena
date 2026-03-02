@@ -92,18 +92,71 @@ flowchart TD
         ├── TEST.csv        # Test data for submission
         ├── TRAIN.csv       # Training data for model
 ├── EDA.ipynb               # Exploration notebook
-├── Model_Training.ipynb    # Training & evaluation notebook
-├── lgb_model.pkl           # Saved model
 ├── Final_Submission.csv    # Our predictions
+├── Model_Training.ipynb    # Training & evaluation notebook
+├── app.py                  #Streamlit app
+├── lgb_model.pkl           # Saved model
 └── README.md
 ```
-
 ## Usage Instruction
 ---
 Using Streamlit App
 https://fault-detection-system-hashmap.streamlit.app/
 
 Drop in any CSV with `ID` and `F01–F47` columns. The app will predict each device's status, show you confidence scores, and let you download the results. If you have ground truth labels, it'll also show accuracy, F1, confusion matrix — the works.
+
+---
+
+## 🖥️ Running Locally (Manual Setup)
+
+### 1. Clone the GitHub Repository
+
+```bash
+git clone https://github.com/ankitkumar-09/ML-alriEEEna
+cd ML-alriEEEna
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Explore the Data (Optional)
+
+Open `EDA.ipynb` to explore the dataset and visualizations:
+
+```bash
+jupyter notebook EDA.ipynb
+```
+
+### 4. Train the Model (Optional)
+
+Open `Model_Training.ipynb` to retrain the LightGBM model:
+
+```bash
+jupyter notebook Model_Training.ipynb
+```
+
+> The pre-trained model is already saved as `lgb_model.pkl` — you can skip this step if you just want to run predictions.
+
+### 5. Swap in Your Test CSV
+
+Inside `Model_Training.ipynb`, locate:
+
+```python
+df = pd.read_csv("your_test_file.csv")
+```
+
+Replace it with the path to your own CSV file containing `ID` and `F01–F47` columns.
+
+### 6. Run the Streamlit App Locally
+
+```bash
+streamlit run app.py
+```
+
+Then open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ---
 
