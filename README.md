@@ -98,6 +98,7 @@ flowchart TD
 └── README.md
 ```
 
+## Usage Instruction
 ---
 Using Streamlit App
 https://fault-detection-system-hashmap.streamlit.app/
